@@ -8,12 +8,13 @@
 </head>
 
 <body>
-  <input id="file" type="file" multiple/>
+  <input id="file" type="file" multiple/></br>
+  <button title="提交" onclick="main()">submit</button>
 
   <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.20.0-0/axios.min.js"></script>
   <script>
-    const phone = '' // 这里填手机号
-    const password = '' // 这里填密码
+    const phone = '17315031651' // 这里填手机号
+    const password = 'dl575153' // 这里填密码
     const fileUpdateTime = {}
     let fileLength = 0
     let cookieToken = ''
@@ -23,7 +24,7 @@
       throw new Error(msg)
     }
     login()
-    main()
+    //main()
     async function login() {
       const res = await axios({
         url: `/login/cellphone?phone=${phone}&password=${encodeURIComponent(password)}`,
@@ -32,6 +33,7 @@
       cookieToken = res.data.cookie
     }
     function main() {
+      console.log(`submit`)
       document
         .querySelector('input[type="file"]')
         .addEventListener('change', function (e) {
